@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tabela de Produtos</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            background-color: #FFF9E6;
+        }
+
+        .container {
+            text-align: center;
+            width: 80%;
+        }
+
+        h1 {
+            margin-bottom: 20px;
+            color: #CDA700;
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            background-color: #fff;
+        }
+
+        th, td {
+            padding: 10px;
+            border: 1px solid #ddd;
+            text-align: left;
+        }
+
+        th {
+            background-color: #CDA700;
+            color: #fff;
+        }
+
+        tr:nth-child(even) {
+            background-color: #FFEC99;
+        }
+
+        tr:hover {
+            background-color: #FFDF80;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Tabela De Preços</h1>
+        <table>
+            <thead>
+                <tr>
+                    <th>Nome</th>
+                    <th>Preço</th>
+                    <th>Categoria</th>
+                    <th>Descrição</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>Iphone 6</td>
+                    <td>R$ 1.499,00</td>
+                    <td>Eletrônicos</td>
+                    <td>Celular com 128GB e câmera de 48MP.</td>
+                </tr>
+                <tr>
+                    <td>Cafeteira Genérica</td>
+                    <td>R$ 299,00</td>
+                    <td>Eletrodomésticos</td>
+                    <td>Cafeteira com design moderno.</td>
+                </tr>
+                <tr>
+                    <td>Fones Sem Fio</td>
+                    <td>R$ 249,00</td>
+                    <td>Eletrônicos</td>
+                    <td>Fones sem fio com cancelamento de ruído.</td>
+                </tr>
+                <tr>
+                    <td>Notebook Intel</td>
+                    <td>R$ 3.599,00</td>
+                    <td>Eletrônicos</td>
+                    <td>Computador com i7, 16GB de RAM e 512GB SSD.</td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+</body>
+</html>

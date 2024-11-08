@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Fale Conosco</title>
+    <style>
+        body {
+            font-family: 'Arial', sans-serif;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            background-color: #f5f5f5;
+        }
+        .form-container {
+            background: #fff;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+            width: 100%;
+            max-width: 450px;
+            transition: transform 0.3s ease;
+        }
+        .form-container:hover {
+            transform: scale(1.02);
+        }
+        h2 {
+            text-align: center;
+            color: #4CAF50;
+            font-size: 24px;
+            margin-bottom: 20px;
+        }
+        label {
+            display: block;
+            margin: 8px 0 4px;
+            color: #555;
+            font-size: 14px;
+        }
+        input, textarea {
+            width: 100%;
+            padding: 12px;
+            margin-bottom: 12px;
+            border: 1px solid #ddd;
+            border-radius: 6px;
+            font-size: 14px;
+            box-sizing: border-box;
+        }
+        input[type="submit"] {
+            background-color: #4CAF50;
+            color: white;
+            border: none;
+            cursor: pointer;
+            padding: 14px;
+            border-radius: 6px;
+            font-size: 16px;
+            transition: background-color 0.3s ease;
+        }
+        input[type="submit"]:hover {
+            background-color: #45a049;
+        }
+        .message {
+            text-align: center;
+            padding: 10px;
+            border-radius: 6px;
+            margin-top: 20px;
+            font-size: 16px;
+        }
+        .success {
+            background-color: #4CAF50;
+            color: white;
+        }
+        .error {
+            background-color: #f44336;
+            color: white;
+        }
+    </style>
+</head>
+<body>
+    <div class="form-container">
+        <h2>Fale Conosco</h2>
+        <form id="contact-form">
+            <label for="name">Como você se chama?</label>
+            <input type="text" id="name" name="name" required placeholder="Seu nome">
+            
+            <label for="email">Qual o seu e-mail?</label>
+            <input type="email" id="email" name="email" required placeholder="Seu e-mail">
+            
+            <label for="message">Nos conte como podemos ajudar:</label>
+            <textarea id="message" name="message" rows="4" required placeholder="Sua mensagem"></textarea>
+            
+            <input type="submit" value="Enviar">
+        </form>
+        <div id="message-result" class="message" style="display: none;"></div>
+    </div>
+    <script>
+        document.getElementById('contact-form').addEventListener('submit', function(event) {
+            event.preventDefault();
+            let name = document.getElementById('name').value;
+            let email = document.getElementById('email').value;
+            let message = document.getElementById('message').value;
+            let resultMessage = document.getElementById('message-result');
+            
+            if (!name || !email || !message) {
+                resultMessage.style.display = 'block';
+                resultMessage.className = 'message error';
+                resultMessage.textContent = 'Ops! Parece que você esqueceu de preencher algum campo.';
+                return;
+            }
+            
+            let emailPattern = /^[a-zA-Z0-9._-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,6}$/;
+            if (!emailPattern.test(email)) {
+                resultMessage.style.display = 'block';
+                resultMessage.className = 'message error';
+                resultMessage.textContent = 'Hmm, o e-mail não parece estar correto. Pode verificar?';
+                return;
+            }
+            
+            resultMessage.style.display = 'block';
+            resultMessage.className = 'message success';
+            resultMessage.textContent = 'Mensagem recebida com sucesso! Faremos o possível para responder rapidamente.';
+            document.getElementById('contact-form').reset();
+        });
+    </script>
+</body>
+</html>
